@@ -1,0 +1,7 @@
+art1.png
+	 seed function: ['avg', ['cos_pi', ['x']], ['prod', ['y'], ['x']]]
+	 color 1 function: ['avg', ['cos_pi', ['cos_pi', ['sqrt', ['x']]]], ['prod', ['square', ['sqrt', ['y']]], ['avg', ['sqrt', ['x']], ['sin_pi', ['y']]]]]
+	 color 2 function: ['avg', ['cos_pi', ['sin_pi', ['square', ['x']]]], ['prod', ['cos_pi', ['prod', ['y'], ['x']]], ['prod', ['prod', ['x'], ['y']], ['prod', ['y'], ['x']]]]]
+	 color 3 function: ['avg', ['cos_pi', ['square', ['cos_pi', ['x']]]], ['prod', ['sqrt', ['sin_pi', ['y']]], ['cos_pi', ['square', ['x']]]]]
+
+

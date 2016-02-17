@@ -1,0 +1,7 @@
+art5.png
+	 seed function: ['x']
+	 color 1 function: ['avg', ['sqrt', ['x']], ['square', ['y']]]
+	 color 2 function: ['sqrt', ['square', ['x']]]
+	 color 3 function: ['avg', ['square', ['x']], ['sqrt', ['y']]]
+
+

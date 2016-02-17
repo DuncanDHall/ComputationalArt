@@ -1,0 +1,7 @@
+art2.png
+	 seed function: ['x']
+	 color 1 function: ['avg', ['cos_pi', ['x']], ['avg', ['y'], ['x']]]
+	 color 2 function: ['sqrt', ['sqrt', ['x']]]
+	 color 3 function: ['avg', ['square', ['x']], ['prod', ['y'], ['x']]]
+
+
