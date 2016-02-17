@@ -1,2 +1,2 @@
 # ComputationalArt
-This is the base repository for the computational art mini project.
+This is a respository which has been heavily modified by myself, but originally a assignment for Software Design at Olin College of Engineering in SP2016. I have modified the base script by adding a seed function so that color channels are sometimes less exposed than in the basic implementation. I've also allowed users to specify the complexity of the seed functions and therby the image complexity, and also the variation in the individual channels from that seed (only towards the more comlpicated though).
