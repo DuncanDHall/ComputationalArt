@@ -1,11 +1,10 @@
-""" This is a pretty jank implementation that maybe I'll come back to,
-    probs not though...
+""" This is decent, faster, but doesn't have the shared seed between color
+    channels. Has custom color pallet though
 """
 
 from PIL import Image
 import numpy as np
 from math import pi
-import pdb
 
 
 def build_random_function(min_depth, max_depth, seed=None):
@@ -155,7 +154,6 @@ def generate_art(
     c3_function = build_random_function(5, 7)
 
     # Create image as array, then barf over all pixels at once
-    # pdb.set_trace()
     x = np.tile(np.linspace(-1, 1, x_size), (y_size, 1))
     y = np.tile(np.linspace(-1, 1, y_size), (x_size, 1)).T
     r = (c1_function(x, y)*c1[0] +
@@ -185,10 +183,11 @@ if __name__ == '__main__':
     # Create some computational art!
     # TODO: Un-comment the generate_art function call after you
     #       implement remap_interval and evaluate_random_function
-    generate_art("myart.png", pallet=(
-        (252/255.0, 0/255.0, 255/255.0),
-        (0/255.0, 255/255.0, 213/255.0),
-        (204/255.0, 164/255.0, 20/255.0)))
+    generate_art("myart.png")
+        # pallet=(
+        # (252/255.0, 0/255.0, 255/255.0),
+        # (0/255.0, 255/255.0, 213/255.0),
+        # (204/255.0, 164/255.0, 20/255.0)))
 
     # Test that PIL is installed correctly
     # TODO: Comment or remove this function call after testing PIL install

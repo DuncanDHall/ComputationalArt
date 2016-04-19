@@ -1,5 +1,8 @@
-""" This is a pretty jank implementation that maybe I'll come back to,
-    probs not though...
+""" This is a pretty jank implementation, but it does allow a seed to be
+    created which makes the different color channels blend better together.
+    It's not that different from my original, just with functions in the
+    lists directly. Check out actually_better_art.py for some better
+    plotting (courtesy of Oliver Steele)
 """
 
 import random
