@@ -9,6 +9,7 @@
 import random
 from PIL import Image
 from tqdm import *
+import bubble
 
 
 def test_image(filename, x_size=350, y_size=350):
@@ -27,11 +28,19 @@ def test_image(filename, x_size=350, y_size=350):
             pixels[i, j] = (random.randint(0, 255),  # Red channel
                             random.randint(0, 255),  # Green channel
                             random.randint(0, 255))  # Blue channel
+    return im
 
-    im.save(filename)
+
+def gen_background(filepath="background.jpg"):
+    im = Image.open(filepath)
+    return im
 
 if __name__ == '__main__':
     dir = "out/"
-    filepath = dir + "noise.png"
-    test_image(filepath, 1400, 1000)
+    filepath = dir + "out.png"
+
+    im = gen_background()
+    bubble.paint_bubble(im)
+
+    im.save(filepath)
 
