@@ -1,9 +1,10 @@
-import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import matplotlib.pyplot as plt
 from matplotlib.path import Path
-import curves
 from tqdm import tqdm
 
+import curves
+import mandala
 
 def plot_points(ax, verts):
     ax.plot(verts[:,0], verts[:,1], 'x', lw=1, color='red', ms=10)
@@ -33,5 +34,25 @@ def make_figs(num):
         plt.close()
 
 
+def make_mandalas(num):
+
+    for n in tqdm(range(num)):
+        fig = plt.figure(figsize=[10,10])
+        ax = fig.add_subplot(111)
+
+        verts0, codes = curves.gen_compound1(5)
+        vertss = mandala.mandalate(verts0)
+        for verts in vertss:
+            plot_curve(ax, verts, codes)
+        # plot_points(ax, verts)
+
+        ax.set_xlim(-2.0, 2.0)
+        ax.set_ylim(-2.0, 2.0)
+
+        plt.axis('off')
+        plt.savefig("out/mandala{}.svg".format(n))
+        plt.close()
+
+
 if __name__ == "__main__":
-    make_figs(40)
+    make_mandalas(40)
