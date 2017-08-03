@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
 from matplotlib.path import Path
+import numpy as np
 
 def curve1():
 
@@ -74,15 +74,25 @@ def compound2():
     return verts, codes
 
 
-def gen_compound(num_curves):
+def gen_compound1(num_curves):
     # generates a compound set of 3 point curves which each share a
     # tangent at their terminus with the next.
     # arguments:
     #   num_curves - int number of sub curves
-    pass
 
-    verts = np.random.rand(1, num_curves * 2 + 1)
-    codes = [Path.MOVETO]
+    codes = [Path.MOVETO] + (num_curves * 2 * [Path.CURVE3])
+
+    verts = np.random.rand(num_curves * 2 + 1, 2)  # this is before "smoothing"
+    verts = verts[verts[:, 0].argsort()] # sorts according to x value only
+
+    # now smoothing occurs
+    for c in range(1, num_curves):
+        i = c * 2 + 1  # index of the middle point in sub curve 'c'
+        m = (verts[i-1][1] - verts[i-2][1]) / (verts[i-1][0] - verts[i-2][0])
+        dx = verts[i][0] - verts[i-1][0]
+        verts[i][1] = dx * m + verts[i-1][1]
+
+    return verts, codes
 
 
 
